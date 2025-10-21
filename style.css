@@ -1,0 +1,133 @@
+:root {
+  --cor-fundo-pagina: #f9fafb; /* gray-50 */
+  --cor-primaria: #f59e0b; /* amber-500 */
+  --cor-primaria-hover: #d97706; /* amber-600 */
+  --cor-texto-principal: #111827; /* gray-900 */
+  --cor-texto-secundario: #6b7280; /* gray-500 */
+  --cor-borda-suave: #e5e7eb; /* gray-200 */
+  --cor-fundo-card: white;
+}
+
+html.dark {
+  --cor-fundo-pagina: #171717; /* neutral-900 */
+  --cor-texto-principal: #fafafa; /* neutral-50 */
+  --cor-texto-secundario: #a3a3a3; /* neutral-400 */
+  --cor-borda-suave: #404040; /* neutral-700 */
+  --cor-fundo-card: #262626; /* neutral-800 */
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--cor-fundo-pagina);
+  color: var(--cor-texto-principal);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.seta-ordenacao {
+  opacity: 0.4;
+  transition: all 0.2s ease-in-out;
+}
+.seta-ordenacao.ativo {
+  opacity: 1;
+  color: var(--cor-primaria);
+}
+.animacao-entrada {
+  animation: fadeIn 0.3s ease-out;
+}
+.animacao-conteudo-entrada {
+  animation: scaleUp 0.3s ease-out;
+}
+.animacao-notificacao-entrada {
+  animation: slideIn 0.4s ease-out;
+}
+.animacao-notificacao-saida {
+  animation: slideOut 0.4s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Estilo para link de navegação ativo */
+.nav-link-ativo {
+  background-color: var(--cor-primaria);
+  color: white;
+  font-weight: 600;
+}
+
+/* Estilos para Chart.js Tooltip */
+.chartjs-tooltip {
+  background: rgba(17, 24, 39, 0.8);
+  border-radius: 0.5rem;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  pointer-events: none;
+  position: absolute;
+  transform: translate(-50%, -100%);
+  transition: all 0.1s ease;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+}
+
+.tooltip-body-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tooltip-color-box {
+  width: 10px;
+  height: 10px;
+  border-radius: 0.125rem;
+  flex-shrink: 0;
+}
+
+/* Estilos para Arrastar e Soltar (Drag and Drop) */
+.kanban-column.drag-over {
+  background-color: #fef3c7; /* amber-100 */
+  border-color: var(--cor-primaria);
+}
+html.dark .kanban-column.drag-over {
+  background-color: #404040; /* neutral-700 */
+}
+.project-card.dragging {
+  opacity: 0.5;
+  transform: rotate(2deg);
+}
